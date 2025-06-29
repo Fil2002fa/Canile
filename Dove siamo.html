@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <title>Canile Presina</title>
+</head>
+<body>
+    <main >
+        <div id="container">
+            <!-- Navbar-->
+           
+            <nav>
+              <div id="logo">
+                <i class='fas fa-paw' style='padding:10px 20px;font-size:40px; color:rgb(139, 10, 10)'></i>
+                <p><b>Rifugio</b> <br>San Francesco</p>
+              </div>
+              <ul id="munuList">
+                  <li><a href="/home.html">Home</a></li>
+                  <li><a href="/CaniInRifugio.html">Cani in Rifugio</a></li>
+                  <li><a href="/Aiutaci.html">Aiutaci</a></li>
+                  <li><a href="/Chisiamo.html">Chi siamo</a></li>
+                  <li><a href="/Dove siamo.html">Dove siamo</a></li>
+                  
+              </ul>
+              <div class="menu-icon">
+                  <i class="fa-solid fa-bars" onclick="myfunction()"></i>
+              </div>
+            </nav>
+
+        </div>
+        <!-- maps-->
+        <div class="contenitore1 fade-in ">
+            <h1>Dove si trova il Rifugio San Francesco</h1>
+                
+                <p>
+                    La sede del rifugio si trova nella periferia della città di Presina, provincia di Padova.  
+                    Per raggiungere il rifugio, aiutatevi con la mappa sottostante.
+                </p>
+                
+            
+        </div>
+
+        <div style="max-width: 100%; list-style: none; transition: none; overflow: hidden; width: 100%; height: 500px;">
+            <div id="g-mapdisplay" style="height: 100%; width: 100%; max-width: 100%;">
+                <iframe 
+                    style="height: 100%; width: 100%; border: 0;" 
+                    frameborder="0" 
+                    src="https://www.google.com/maps/embed/v1/place?q=canile+di+presina+padova+&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                </iframe>
+            </div>
+        </div>
+        
+        <style>
+            #g-mapdisplay .text-marker {}
+            .map-generator {
+                max-width: 100%;
+                max-height: 100%;
+                background: none;
+            }
+        </style>
+        <!-- Contatti-->
+        <div class="contactus fade-in">
+            <h1>CONTATTACI</h1>
+            <div class="contact-container fade-in">
+    
+                <!-- Primo blocco -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVR4nO2ZS0hUURjHf6ZZGJWUVqYWGbQSMlpkRYtE2oRBRAVFmGIYZLWM1tKqwih6CLWpXUXagx4LSVr0EiwhIm3Rg4qg1J5oz4lD/wuHYebOXBnvnIH5wd3M/c7c79x7vv/5vu9AlixpZR3QA4wCfcByMox84DgQibqGgVIyhOlAlxwfAVqAIuCyfrtOBjAHeCyH3wJLo+591L1GHGYa0CtHnwLzY9hs1f1PwDwcZBJwR04+AWb62Ha4vMQOyLlXQFkCW7PEBmVfj2MMybHVSdpvk70ZV4JDjMqxwgBjrmmMWWrO8FxOVQYYU6agN+M24wgdcsioUhB2aFw/jtAih84GHFekcb+BHBxgIfAX+AJMDTBuuyZi8jFn6JJTO5O0nwy8dFGGN1nrPS8J+/2yfwRMwCFylZoY55oT2M4CPsu2FgfZIOfeAQU+du2yMxmxk+QAD+TkQZ/Y+CqbJhxmCfAT+AOsimOzxyq0FuAwrVbgF8T5cldl8zDBMkx7qdsnR03JG4tCSxw6JRZOUqVS1zja4LORfpBNuyu7eywarNp9WUyL/50VL/jbcJijliTH66DUWF/vMI4yEbgtJ+/6BHad1C6iitNJioEXcvKGxCAWG63JtLkaM4uA93LyvI9K1VnL7JSrarZYm6Bx8rTPG6+xBKAzznLMlZiYpNNsvgNKXENjBfAticCutqS5J6pPVmvtU9HXRWA2IbEG+GFNJt6XqbA2zSGVxl5GEFHcmVqmSPe8jNp0NLeENZn11mTO+MSCyQCuRL114/A+JaA25RITz65DfbRQvoy3zC74qJn5YrsVNydVz/jRaMXioPpo485K66E3EySQpjWbLKVW7yyiJTmXEPIyT5rvpbj7WG91Qod9UqWU7jNeM+JNih9YYomEketQMoBuPXDUJ2seCzP0v98JMTc7Zq3tEykqvPZa+V6oNFjN8QGJwliptqR+LWmgytrBTRpyCJgS8D8qLCE5QhrJVw/gl1XXNCfZBCwGnmncLS3btGMOVu9bsdOv9my8XnO5ld70BuxJjzs5agJ6bzmixvk5HWlU6njcZM+vLbkNLYkMSp4Oh7p0ChCJc3VrYhmBCeZdwCWp24iy39aAKU2WLKSQf3jSBy3qRwNwAAAAAElFTkSuQmCC" alt="phone--v1"></div>
+                          
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Recapiti Telefonici:</h1>
+                            <p>📞 333 1867076</p>
+                            <p>📞 338 4981981</p>
+                            <p>📞 333 1105921</p>
+                            <h1>Account Social:</h1>
+                            <div class="aacountsocial">
+                                <a href="https://www.instagram.com/caniledipresina"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKPElEQVR4nO2YC1RVZRbHD6iQiq8alHvJB4iJGmCKTjq1fCuSAooPkGcSWE1WppMz2QypZS/NFDW1fDVOOipWSkvzURo+Uis1RPGBIPkEfAAXuDzu/c0633fuueJjxovOmjVrsdfaa13ud87e/9+397fP4SpKndVZndXZ/40F+eAa1LF41OAupq8H+ZWWB3U2WYf6mrhXH+RfRp8nzfTqV0n3YAtdQ60EhFjKuoZYcgJCLWv8QxnbeTQu/xXxQzuVhgX5lmTfKmqYTwmhbYoZ4VlEuOEGo1rdINzjuvisfhfatkhccyeggU+U8Yc+FXQbJmE0oNyAUMIemPBkBeehviUfqAmDO0qxYx65TkzDQuKd8xmv3Js/65xPdKNCca8aI7jjTTCdTPTrYSZwSLUO0jXUMkdRcLpvgGBf0+yw1kWMa3KV8U4FtwlLcL5MQqM8EpqfIeGRkyS0PMFz7lnyc7NsEhrmMd75yu1A9fKJbHaNsDbFNarSL7CcHkESJCDEMvu+xI9ucX1mfP2aolVBz7XKZPrwDL5b+xuXckowl1XjqJlNVi5kVrN9XhnTul8n3OMGQ7WqBHUy0efJCp4YbuGJEEJqJ16hXrxzwTUhusFFEo0ZJHXdxUt9vyX96zysFisPyqwW2LW4nAS3q4w03NCrMdivlJ4DKi/X6mA/q+QPS3joN5J8DjKh11Ym9N4ixJ8+ck0krTJXc2Dlaf4xcgcpfhv5yGfdXX12h/W83SmVNwO+4rXAzTzfewsv99/Gu8/tY8eaXCrNFhHz5O5KklwLiG5YyHAve2s93bvC8VZK9D50zCZcTTi5exo/r88RiYrOl7Jq6FZd4Mc+a1nkvYylXkv4rN1C4Uu8l7LQe4VYuxXow8fW8dbjG3m1R5qIPz06nauXy0XsXUtK5RlxKmBUS1mNgQFlPzsMkPTk1nOq8CndNvOu7wb+PmybaBt159cO2cjqtu+x6dEpbDck8oNH1L/xaLYZk/iq9VRWt32fBe1X1YB513cDU7pvZkZ0OpUVFpEj+alz+pmLcrtKcAdTpsM
+                                    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" alt="instagram-new--v1"></a>
+                                <a href="https://www.facebook.com/caniledipresina"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADK0lEQVR4nO2Zz08TQRTHNzM0MQHixaMnI2jE4Mmr/4A/okej3r0oAn+AiYke9IYkpDNFDAkRqokHL4bEEzFelIqAJP5IDPvetrXQAhXSsrRjplYMboGdnd0th/0m79TN7Pcz8+bN7KthRIoUKZJUbNg8Qxj0UYZJwnCGcsxTjpv1yBOGH2u/cbNXPmscCCVy7YRDP2XwmXIUSsFgXgIbg9m28I3fFS1yJinDZWXjDhBcIgzvyDHDMR/Hk4RjStv4f0EYThsJOBGodxqHS5RD0W/z9F9arVEOFwMxTxLWDcrBDsw8/xtgE25dD2LmQzCP2xCUwQV/3A+ZHX+WVs9U24glOiey4uzLn6LreVZ0jGfE4afWXhBFud98qDbeN2wLR3H1TV5Mpctis1IVjXR5cnn3jc3hg1Z1qpVKj+YPDVti4vuG2E9X9gCoQcSxx5v70XQr5ZDzCvBwpriveTcA8pyQB6aH2Yd+r+aPjmVEeZeUUQbg8oyAPmUAT9eDevS+W2lotlCuiPupNXFzqrAdx55l9h+TwbySeXnZ0qk4498a5/65VznPY8YS6dOhpI+Mt5myw/zs8qbn8ajqZpbXXp2XzeVtB8DY1w0tAMpwXGEF8JPOyxYKToDHc7/0VoBjSmUFlvwGGNAEoBxyKgDlgweApUAA7k2viXypsiO2GhwBpa2q47l8qSK6X2QDAXCdQo9cnriNVBVCtI9Y/qeQyibWAfhR3ApsEyfDAJiEUkBlVLZHQgAYUNjYhONt1wAxbnarfKgcGU3viC8rzirEFtYdz7U+cZv/KGIs3eUaoL4KswolLtgyyhQvc6ppFDQA4WZvqB80vgIwXPLcvZMds2YDEIa3DK2PeobTzQIgHN4bSUENLfHF45TBavgA4ENbpS7Z7lNpbOkDgE0T5nnDT8l2n1sIPQCwCcNrRhCS7T43XTrPAAxWfZ95hxh0yo6Z3wBEbtghs8MIRbI6xbFnt2u3GgDkaqVSu9p40WC2TZ7YhMOcKoC8qhB5wjblL6YGkpet2qpwnHhtlgqLRbuybleFDLNoVx6kVi15Ja61R4atU832GylSJONg6DekIcfGE7hs2QAAAABJRU5ErkJggg==" alt="facebook-new"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Secondo blocco -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADuElEQVR4nO2ZWYiOURjHfzRkmbHPZOJCWYZCiNwoW7JEGtkaV24VuZG9xnZBcodsxYWILJESLiQiDLIklEhqLFnGvoxPR/+3TtN8531f3znffCO/euvr/f7vc/bnOec58J9G6QBUAbuAq8BL4Luel3q3E5gLlFCAVAB7gM9AJuHzCdgN9KUAaAdsBn6ocr/U6yuB0Wpgez0VercKuCZtRqO1CWjTVI0wPXlHlakH9gO9U3zfBzhgNegyUE6eGao5byrwABiWg63hwEPZegYMJo8jETXiDNDZg80uwFmrMeX5WBN3rEYUebTdCjhnTbOga2azNZ18jERjI/NIZawhEBXyTvU5rok4RsgBfAS6hyhgj3rKeKfQHFRZ20JE7E/qqSQutgxYB9xUz5rnBrAWKE3oUH7pu2I8UqUeMsEujplAnSOivwdmJLBzXfo5eGSXjJqIHdeIKMAdUySPIvsY4LgVQCtjbK2WdofHdvwZiYwq5ppO0UgsceiWSvMO6ObQjZXuCh55JaP9HJp11kjEcSKBi+0nzQs88k1GXVvvWwlGrWFvGweQjRJpvuKRLzLqirYfpEniZaJKmqno2kVkdDTwRq2MugJUXYqGdLA8WDZ6SPMcj9yX0YEOzU1pjHeKY5y0NQ7NEGnu4pGTMjrboVkrzfEU9qodmnnSHMUjG2R0vUNTqqmSkYvNxnJp3gJdHbqNCRqbmtkyarbZLmYo2GXkYsdqzRRrOkUjYTTTY2xdlDZOl4oyFf5V3sRFpYJdti3K2wSV66Sdtnk64pkbqsiUBNpuCnY1cst12jtVx0yniFkqy4yKd6LIvZfwHEmw1v6a/pbvj5teudBRAdhsPnuFKqRGjTGuMRQLVcb5gGWwwEoOhKAIeKwyzBkoGMWWRzJna9/MtbYlJqsSlC0q7HDAqbuCPFBuLcZBHu1OsA5cJo7kha0BRsUs7qD5rMboaWVVRnmwV6lGvA6U+HNSbZ3yWuZgp7WVxF5AE9AWeKIKzM/BzhLZuOc5l/xX+a5anfrSUmq584k0IS2AS6qISXCnZZ++Ndv7Jmeors9+AiNTfDfJuktMc9MVlOiYez/hvYbJojzVN4soIFoDtxMchyO2W+eNXDxeEIZoitXHZFImKf6Y0+YACpQ16uknWbYZZUqBGs1iCpgi4IKVxjFeLcJModP671SD/wqSnlbSe2UjR+XaUFdqIZimdWDWy2Rgqn4bFz2eZka1RuCNUkDm9zKaIS2AQ1Y+q+GaaVaU6Mbpsu9LTf5VfgNttDSN+ivn8AAAAABJRU5ErkJggg==" alt="marker--v1"></div>
+                            
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Dove ci trovi</h1>
+                        <p>📍 Rifugio San Francesco</p>
+                        <p>🏠 Via Borghetto I, 11 35016</p>
+                        <p>🏙️ Presina di Piazzola sul Brenta (PD)</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Terzo blocco -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADq0lEQVR4nO2ayWtUQRDGf8HojChqxiUe9SgR9Z9wicYtN7ebEi8uRK8uN8XoRQjk71A0qKgE1KhxFzSLgrgdNHgzGqKMFHwPCp2ZvHnT8+YpfvCYpbur++vqrq6qfvAf/y4KwDagB7gEDANfgEk99v2lyqzOVqCFjCAP7AGuAj+BYpXPD+AKsBvINYLAbOAI8NEN6jtwAzgmzazQjM/U06L/rOw4cFNtovYfgG5NTirYBLx2AxgC9gLzE8haAOwDHjh5r4B26gibqT7X4UNgXUD5G4DHTn5vPbSzVAO3Dr4CB4AZMdveAwZj1p0BHAImnLZbCYTlUndRVmdlle2jGa4Gq4ARtRvTGGrCYifwPrAogYwkRJBxuKW2r7UqEiHvltMdYE5COUmJoD7vumWWaM/0ueVkhx0NIGJY6FaFGYCqTWy0savdE6GJRHsmMgBm3WIfdtE5YdaJDBAxHHabP9YSO+rOibgmNg0izcATyTJSFZGTq2CV1xIGoYgYNkrWx+m0sttZCDJIpMlZ0p2VKl5TJfOdskjE0CV5/ZRBQW7194QOYFpEWhTfTJUb53Z1eJ2wCE3EMCCZmymBsyq0eCLrRE5K5plShZdUuOUvILJdMi+UKhxVoUVxIWBR4TlHpEf/hUCbZFpe4A+Mq9B8mxDwJDyZEFgkeZ9LFU6qcFagzj6XIPIpkOycyxPUncjbEkTep0FkPODSsoDsTQkip0hhaY0G2uxLgOeS9UaaMf/tdEBtt1Xa7JH5tQxgLZp45gKyxOHpNOisZH6jA9GSZ7Vq4rl+1wsnKx2I21Ro2cKsauJ3F6WDMs5Y5DRaBjCLmoic28hpnEcZXNGALI0ZF0MpkjDsV3+XqYBdqmS52LgYVP00SDQBjzTGHdMdNO9VcT3ZQ4fG9i7ONUS3Kj8KlHwIhWbgqcZ2ME6DvMv1WkI5K+jWmEaquRRqV6MJJccajTXAN42p6quMXjcDoVx7Ep5RYxrL+SQC8s603q0hiV0L5up+pajPXC2zMeyuFex3WigAt911XM0XPsudam2ZrSadPTGmPs0rXxZKcKtbZhPKvZo5DI1mWadvbjkFP2jzzgAUlVBuD3hi21VGdE5EG7uud+8bnNqjrH1XwrcYCvKdIrejqKUU8rZ4Wu0cdu5MUR6pudcnlHdqk9mepWehLo06VWfA5Qkit+Ngo96AyCkr3q8QoFjlM6XIdEejCJTCfOViLWq7qABr3L1UY99fKDw9o7pl44n/4C/HL07KXY9ffv2xAAAAAElFTkSuQmCC" alt="clock--v1"></div>
+                         
+                        </div>
+                        <div class="flip-card-back">
+    
+                            <h1>Orari invernali</h1>
+                                    <p>🕒 Orario invernale: mattino 09.00-11.00 (solo per donazioni), pomeriggio 14.30-17.00 (adozioni e visite su appuntamento)</p>
+                                    <h1>Orari estivi</h1>
+                                    <p>🕒 Orario estivo: mattino 09.00-11.00 (solo per donazioni), pomeriggio 15.00-18.00 (adozioni e visite su appuntamento)</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        <div class="homepage4 fade-in ">
+            <div class="parte1">
+              <h1>Qualcosa di Noi</h1>
+              <p>noi, nel nostro piccolo, vorremmo restituire una vita a chi è stata rubata e donarne una nuova a chi ancora non l'ha mai avuta. 
+                Un lungo cammino che vorremmo rincominciasse da qui...</p>
+              <a href="/Chisiamo.html">La nostra missione</a>
+            </div>
+            <div class="parte2">
+              <h1>Contattaci</h1>
+              <p>Il nostro impegno ha bisogno sempre di supporto. Se hai necessità di metterti in contatto con noi,
+                 utilizza i recapiti di seguito riportati:</p>
+                 <ul class="numericell">
+                  <li>📞 333 1867076</li>
+                  <li>📞 338 4981981</li>
+                  <li>📞 333 1105921</li>
+                </ul>
+            </div>
+            <div class="parte3">
+              <h1>Informazioni</h1>
+              <li class="lastpage">
+                <a href="/Chisiamo.html">Chi siamo</a>
+                <a href="/Dove siamo.html">Dove siamo</a>
+                <a href="/Contattaci.html"> Contattaci</a>
+                <a href="/Aiutaci.html">Aiutaci</a>
+              </li>
+            </div>
+          </div>
+        </div>
+        </main>
+        
+        <script src="index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        </body>
+        </html>
+        
+
+

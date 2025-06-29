@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <title>Canile Presina</title>
+</head>
+<body>
+    <main >
+        <div id="container">
+            <!-- Navbar-->
+           
+            <nav>
+              <div id="logo">
+                <i class='fas fa-paw' style='padding:10px 20px;font-size:40px; color:rgb(139, 10, 10)'></i>
+                <p><b>Rifugio</b> <br>San Francesco</p>
+              </div>
+              <ul id="munuList">
+                  <li><a href="/home.html">Home</a></li>
+                  <li><a href="/CaniInRifugio.html">Cani in Rifugio</a></li>
+                  <li><a href="/Aiutaci.html">Aiutaci</a></li>
+                  <li><a href="/Chisiamo.html">Chi siamo</a></li>
+                  <li><a href="/Dove siamo.html">Dove siamo</a></li>
+                  
+              </ul>
+              <div class="menu-icon">
+                  <i class="fa-solid fa-bars" onclick="myfunction()"></i>
+              </div>
+            </nav>
+
+        </div>
+        <div class="titledonaionee fade-in">
+            <h2>Fai una donazione</h2>
+        </div>
+        
+        <div class="donation-container">
+            <!-- Parte Sinistra: Immagine e Testo -->
+            <div class="donation-info fade-in">
+                <img src="donazionepet.jpg" class="donation-img">
+                <div class="donation-text">
+                    <h1>Abbiamo bisogno del tuo Sostegno!</h1>
+                    <p>L’Associazione Lega Nazionale per la difesa del Cane 
+                        – Sezione dell’Alta Padovana gestisce il Parco zoofilo San Francesco di Piazzola sul Brenta (PD). È un’Associazione senza scopo di lucro, iscritta all’albo Regione Veneto delle associazioni di Promozione Sociale al n. PS/PD361 e all’Albo Regionale Volontariato 
+                        in conformità alla L.R. V.to n. 60 art. 9 del 28/12/93.</p>
+                </div>
+            </div>
+        
+            <div class="donation-box">
+                <div class="containersecondaparte fade-in">
+                    <!-- Contenitore per i bottoni -->
+                    <div class="button-container">
+                        <button class="buttnIban" onclick="toggleContent('ibanContent', 'paypalContent')">Conto Corrente</button>
+                        <button class="buttnIPaypal" onclick="toggleContent('paypalContent', 'ibanContent')">Paypal</button>
+                    </div>
+            
+                    <!-- Contenuti -->
+                    <div id="ibanContent" class="content1">
+                        <p>Puoi fare un bonifico sul nostro conto corrente:<br>
+                            <strong>IT 51 F 08327 62520 000000441323</strong><br>
+                            <strong>Banca di Credito Cooperativo di Roma - agenzia 217 CITTADELLA</strong></p>
+                        <p>Se fai donazioni con conto corrente, inviaci per mail a <strong><a href="lndcaltapadovana@gmail.com">lndcaltapadovana@gmail.com</a></strong> o su WhatsApp al <strong>333 1867076 (Rosa)</strong>.</p>
+                    </div>
+            
+                    <div id="paypalContent" class="content1" style="display: none;">
+                        <p>Se hai PayPal o una Carta di Credito puoi effettuare una donazione in tutta sicurezza attraverso il circuito PayPal, bastano pochi minuti per aiutarci!</p>
+                        <div class="listasoldi">
+                            <input type="radio" class="soldi" name="donazione" id="cinque">
+                            <label for="cinque">5€</label><br>
+                            <input type="radio" class="soldi" name="donazione" id="dieci">
+                            <label for="dieci">10€</label><br>
+                            <input type="radio" class="soldi" name="donazione" id="quindici">
+                            <label for="quindici">15€</label><br>
+                            <input type="radio" class="soldi" name="donazione" id="venti">
+                            <label for="venti">20€</label><br>
+                            <input type="radio" class="soldi" name="donazione" id="venti-altro">
+                            <label for="venti-altro">Altro</label><br>
+                            <input type="number" class="soldialtro" id="altro-amount"> <br>
+                            <a href="https://www.paypal.com/donate?token=d7XN_1hakFZGMjgnp2hOmOet9PIapizcEDuvHKgHsryPr5j_-uz3b0emWryx1GB2nOQNapHBBMOM6IJx&locale.x=it_IT" target="_blank">
+                                <button style="background-color: #0070ba; color: white;margin-top: 50px; padding: 10px 20px; border: none; cursor: pointer;">
+                                  Dona Ora
+                                </button>
+                              </a>
+                              
+                              
+                        </div>
+                        
+                            
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="homepage4 fade-in ">
+            <div class="parte1">
+              <h1>Qualcosa di Noi</h1>
+              <p>noi, nel nostro piccolo, vorremmo restituire una vita a chi è stata rubata e donarne una nuova a chi ancora non l'ha mai avuta. 
+                Un lungo cammino che vorremmo rincominciasse da qui...</p>
+              <a href="/Chisiamo.html">La nostra missione</a>
+            </div>
+            <div class="parte2">
+              <h1>Contattaci</h1>
+              <p>Il nostro impegno ha bisogno sempre di supporto. Se hai necessità di metterti in contatto con noi,
+                 utilizza i recapiti di seguito riportati:</p>
+                 <ul class="numericell">
+                  <li>📞 333 1867076</li>
+                  <li>📞 338 4981981</li>
+                  <li>📞 333 1105921</li>
+                </ul>
+            </div>
+            <div class="parte3">
+              <h1>Informazioni</h1>
+              <li class="lastpage">
+                <a href="/Chisiamo.html">Chi siamo</a>
+                <a href="/Dove siamo.html">Dove siamo</a>
+                <a href="/Contattaci.html"> Contattaci</a>
+                <a href="/Aiutaci.html">Aiutaci</a>
+              </li>
+            </div>
+          </div>
+
+
+            
+        </div>
+
+        
+        </div>
+        </main>
+        
+        <script src="index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        </body>
+        </html>
+        
+

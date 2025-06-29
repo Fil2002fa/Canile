@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+   
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.foto-cane {
+    width:550px; /* Immagine più grande */
+    height: auto;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dettagli {
+    font-size: 20px;
+    color: #444;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.dettagli p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+strong {
+    color: #222;
+}
+#nome-cane {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase; /* Rende tutto maiuscolo */
+    background-color: #d31515; /* Sfondo giallo per risalto */
+    color: #333; /* Colore del testo */
+    padding: 50px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Effetto ombra */
+}
+
+nav {
+    width: 100%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    margin-top: 0;
+    background-color: rgb(230, 225, 225);
+    height: 90px;
+    top: 0;
+    padding-right: 50px;
+  }
+  
+  #logo{
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+  }
+  #logo p{
+    margin-left: 20px;
+    line-height: 1.4;
+    
+  }
+  .imglogo{
+    width: 90px;
+  }
+  
+  
+  /* Stile base per il menu */
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 50px;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: rgb(12, 11, 11);
+  }
+  
+  li > a {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Effetto underline animato */
+  li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: #582e2e;
+    width: 0;
+    transition: width 0.6s ease;
+  }
+  
+  li > a:hover::after {
+    width: 100%;
+    animation: heartbeat116 1.5s infinite;
+  }
+  
+  /* Icona del menu per dispositivi piccoli */
+  .menu-icon {
+    color: rgb(10, 8, 8);
+    font-size: 20px;
+    display: none;
+  }
+  
+  .menu-icon i {
+    color: rgb(17, 15, 15);
+    font-size: 20px;
+  }
+  
+  /* Stile per dispositivi con larghezza <= 1150px */
+  @media (max-width: 1150px) {
+    nav ul {
+      position: absolute;
+      top: 0px;
+      left: 100%; /* Nasconde inizialmente la sidebar fuori dallo schermo */
+      right: 0;
+      flex-direction: column;
+      background-color: rgb(21, 22, 22);
+      gap: 0;
+      height: 100vh;
+      z-index: 10;
+      overflow: hidden;
+      transition: all 0.6s; /* Aggiunge una transizione per rendere fluido il movimento */
+    }
+  
+    nav ul.active { /* Classe che mostra la sidebar */
+      left: 70%; /* Sposta la sidebar in una posizione visibile */
+    }
+  
+    nav ul li {
+      padding: 20px;
+      border-bottom: 1px solid white;
+    }
+  
+    nav ul li:hover {
+      background-color: rgb(70, 65, 65);
+      transition: 1s;
+    }
+  
+    nav ul li:first-child {
+      margin-top: 80px;
+    }
+  
+    /* Disabilita l'effetto ::after per i link nella tendina */
+    nav ul li > a::after {
+      content: none; /* Rimuove l'elemento */
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    #munuList {
+      transition: all 0.6s;
+    }
+    li a {
+      
+      color: rgb(243, 241, 241);
+    }
+  }
+  
+  /* Overlay per scurire il background */
+  body.overlay-active::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    z-index: 5; /* Deve essere sotto la sidebar */
+  }
+  
+  /* Sidebar visibile sopra l'overlay */
+  nav ul {
+    z-index: 10; /* Sidebar sopra l'overlay */
+  }
+  

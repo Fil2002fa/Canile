@@ -1,0 +1,1412 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Definizione dell'animazione fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+     /* Opzionale: aggiunge un leggero movimento dall'alto */
+  }
+  to {
+    opacity: 1;
+   
+  }
+}
+
+/* Applicazione dell'animazione agli elementi desiderati */
+.content, .bttn1, .p1 {
+  opacity: 0; /* Inizialmente invisibile */
+  animation: fadeIn 1s ease-out forwards; /* Animazione di 1 secondo */
+}
+
+/* Ritardo dell'animazione per ogni elemento */
+.content {
+  animation-delay: 0.5s;
+}
+
+.p1 {
+  animation-delay: 1s;
+}
+
+.bttn1 {
+  animation-delay: 1.5s;
+}
+
+/* Definizione dell'animazione fadeIn */
+@keyframes fadeInScroll {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe che verrà aggiunta tramite JavaScript quando l'elemento è visibile */
+.fade-in {
+  opacity: 0; /* Inizialmente invisibile */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  animation: fadeInScroll 1s ease-out forwards;
+}
+
+/* Classe che verrà aggiunta tramite JavaScript quando l'elemento è visibile */
+.fade-in {
+  opacity: 0; /* Inizialmente invisibile */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  animation: fadeInScroll 1s ease-out forwards;
+}
+/* Applicazione dell'animazione agli elementi desiderati */
+.content, .bttn1, .p1 {
+  opacity: 0; /* Inizialmente invisibile */
+  animation: fadeIn 1s ease-out forwards; /* Animazione di 1 secondo */
+}
+
+/* Ritardo dell'animazione per ogni elemento */
+.content {
+  animation-delay: 0.5s;
+}
+
+.p1 {
+  animation-delay: 1s;
+}
+
+.bttn1 {
+  animation-delay: 1.5s;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+
+}
+/* Stile normale del nav */
+nav {
+  display: flex;
+  align-items: center;
+  position: fixed; /* Fissa il nav in alto */
+  justify-content: space-between;
+  margin-top: 0;
+  background-color: black;
+  height: 90px;
+  width: 100%; /* Occupa tutta la larghezza */
+  top: 0;
+  padding-right: 50px;
+  transition: all 0.3s ease; /* Aggiungi una transizione fluida */
+  z-index: 1000; /* Assicurati che il nav sia sopra altri elementi */
+ 
+}
+
+/* Stile del nav quando la pagina è stata scrollata */
+nav.scrolled {
+  height: 70px; /* Riduci l'altezza */
+  opacity: 0.99;/* Opacizza il background */
+}
+
+/* Stile del logo quando il nav è scrolled */
+nav.scrolled #logo {
+  transform: scale(0.9); /* Riduci leggermente le dimensioni del logo */
+  transition: transform 0.3s ease;
+}
+
+/* Stile del menu icon quando il nav è scrolled */
+nav.scrolled .menu-icon i {
+  font-size: 18px; /* Riduci leggermente le dimensioni dell'icona del menu */
+}
+
+#logo{
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+}
+#logo p{
+  margin-left: 20px;
+  line-height: 1.4;
+  color: white;
+  
+}
+.imglogo{
+  width: 90px;
+}
+#logo {
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+/* Stile base per il menu */
+nav ul {
+  display: flex;
+  list-style-type: none;
+  gap: 70px;
+}
+
+li {
+  float: left;
+  font-size: 18px;
+}
+
+li a {
+  text-decoration: none;
+  color:white;
+}
+
+li > a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effetto underline animato */
+li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  background-color: #582e2e;
+  width: 0;
+  transition: width 0.6s ease;
+}
+
+li > a:hover::after {
+  width: 100%;
+  animation: heartbeat116 1.5s infinite;
+}
+
+/* Icona del menu per dispositivi piccoli */
+.menu-icon {
+  color: rgb(10, 8, 8);
+  font-size: 20px;
+  display: none;
+}
+
+.menu-icon i {
+  color: rgb(17, 15, 15);
+  font-size: 20px;
+}
+.menu-icon .fa-solid{
+  color: white;
+}
+
+/* Stile per dispositivi con larghezza <= 1150px */
+@media (max-width: 1150px) {
+  nav ul {
+    position: absolute;
+    top: 0px;
+    left: 100%; /* Nasconde inizialmente la sidebar fuori dallo schermo */
+    right: 0;
+    flex-direction: column;
+    background-color: rgb(21, 22, 22);
+    gap: 0;
+    height: 100vh;
+    z-index: 10;
+    overflow: hidden;
+    transition: all 0.6s; /* Aggiunge una transizione per rendere fluido il movimento */
+  }
+
+  nav ul.active { /* Classe che mostra la sidebar */
+    left: 70%; /* Sposta la sidebar in una posizione visibile */
+  }
+
+  nav ul li {
+    padding: 20px;
+    border-bottom: 1px solid white;
+  }
+
+  nav ul li:hover {
+    background-color: rgb(70, 65, 65);
+    transition: 1s;
+  }
+
+  nav ul li:first-child {
+    margin-top: 80px;
+  }
+
+  /* Disabilita l'effetto ::after per i link nella tendina */
+  nav ul li > a::after {
+    content: none; /* Rimuove l'elemento */
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  #munuList {
+    transition: all 0.6s;
+  }
+  li a {
+    
+    color: rgb(243, 241, 241);
+  }
+}
+
+/* Overlay per scurire il background */
+body.overlay-active::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+  z-index: 5; /* Deve essere sotto la sidebar */
+}
+
+/* Sidebar visibile sopra l'overlay */
+nav ul {
+  z-index: 10; /* Sidebar sopra l'overlay */
+}
+
+
+/* home page  */
+/* Imposta l'altezza della pagina principale */
+.homePage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sfondohome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Base layer */
+}
+
+.sfondohome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2; /* Above image */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 3; /* Above overlay */
+  width: 90%;
+  max-width: 600px;
+}
+
+.p1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.bttn1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.bttn1 a {
+text-decoration: none;
+color: white;
+}
+
+.bttn1 button {
+  max-width:400px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  background-color: #8E1616;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.bttn1 button:hover {
+  background-color: #792533;
+  transform: scale(1.05);
+}
+
+.bttn1 p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .p1  {
+      font-size: 1.5rem;
+  }
+  .titlegalleria p  {
+    font-size: 1.5rem;
+}
+
+  
+  .bttn1 button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+  }
+  
+  .bttn1 p {
+      font-size: 1rem;
+  }
+}
+/* parte la galleria */
+
+  .titlegalleria  {
+    padding: 80px;
+    
+    text-align: center; /* Centra il testo */
+    width: auto; /* Rimuove la larghezza fissa */
+    max-width: 100%; /* Si adatta al contenitore */
+    color: black;
+    align-items: center;
+
+  }
+  .titlegalleria .titlep{
+  
+  }
+  .titlegalleria .paragrafroso{
+    font-size: clamp(18px, 1vw, 50px);
+   }
+  
+.titlep{
+  width: 100%;
+  font-size: clamp(50px, 1vw, 70px);
+  font-weight: 600;
+  text-align: center;
+  width: auto; 
+  color: black;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+.container2 {
+  padding: 80px ;
+  width: 100%;
+  margin: 0 auto; /* Centra l'elemento orizzontalmente */
+  display: flex;
+  justify-content: center; /* Centra il contenuto all'interno */
+  align-items: center; /* Centra verticalmente se necessario */
+  background-color: rgb(0, 0, 0);
+
+}
+
+.swiper {
+  width: 100%; /* Occupa tutto lo spazio del contenitore */
+ 
+}
+
+.card-list {
+  width: 100px;
+  position: relative;
+}
+
+.card-img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; /* Aggiungi transform alla transizione */
+}
+
+.card-img:hover {
+  opacity: 0.6;
+}
+
+.name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  transition: height 0.7s ease-in-out, opacity 0.9s ease-in-out;
+}
+
+.card-list:hover .name {
+  height: 20%;
+  opacity: 1;
+  transition: 0.7s;
+}
+
+.card-list:hover .card-img {
+  opacity: 0.7;
+  transform: translateY(-10px); /* Fa alzare leggermente l'immagine */
+  cursor: pointer;
+}
+
+.card-wrapper img {
+  height: 340px;
+  object-fit: cover;
+  user-select: none;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: red; /* Cambia il colore delle frecce in rosso */
+}
+
+@media (max-width: 768px) {
+  .container2 {
+    padding: 20px ;
+   
+  
+  }
+}
+  /* Home page 2 */
+
+  .titolo p{
+    text-align: center;
+    font-size: 40px;
+    color: #1D1616;
+    margin-top: 10vw;
+    margin-bottom: 10vh;
+  }
+.homepage2{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.icone{
+ text-align: center;
+}
+/* Quando la finestra è più piccola di 768px, i blocchi vanno uno sotto l’altro */
+@media (max-width: 608px) {
+  .homepage2 {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .icone {
+      width: 90%; /* Occupa quasi tutta la larghezza */
+  }
+}
+@media (max-width: 1000px) {
+  .homepage2 {
+      width: 80%;
+
+  }
+
+  .icone {
+      width: 90%; /* Occupa quasi tutta la larghezza */
+  }
+}
+
+
+.fa-solid {
+  font-size: 60px;
+  color: #1D1616;
+}
+.icone .test{
+  text-align: center;
+  color: #1D1616;
+}
+.test p{
+  font-size: clamp(18px, 1vw, 40px);
+}
+
+
+.numero{
+  border: 1px solid black;
+  padding: 10px;
+  width: 6vw;
+  background-color:#ad4d4d;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  max-width: 40px ;
+  margin: 30px auto;
+
+}
+.numero {
+  border: none;
+  padding: 10px;
+  width: 6vw;
+  background-color: #ad4d4d;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  max-width: 40px;
+  margin: 30px auto;
+  position: relative; /* Necessario per posizionare le linee */
+  color: white;
+  font-weight: bold;
+}
+
+/* Linee ai lati del numero */
+.numero::before,
+.numero::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px; /* Lunghezza della linea */
+  height: 2px; /* Spessore della linea */
+  background-color: rgb(107, 107, 107);
+}
+
+.numero::before {
+  left: -50px; /* Posiziona la linea a sinistra */
+}
+
+.numero::after {
+  right: -50px; /* Posiziona la linea a destra */
+}
+
+
+/* Parte dei volontari */
+.homepage3{
+  display: flex;
+  margin-top: 5vw ;
+ width: 100%;
+ 
+ 
+}
+.container3{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 10vw 20vw 10vw 20vw;
+
+}
+
+.parteditesto .h1{
+  margin-top: 60px;
+  font-size: clamp(28px, 2vw, 50px);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  color: rgb(8, 8, 8);
+  margin-bottom: 30px;
+}
+.parteditesto p{
+color: rgb(36, 35, 35);
+margin-bottom: 30px;
+font-size: clamp(18px, 1vw, 40px);
+}
+
+.homepage3 img{
+  width: 20vw;
+  height:auto;
+  position: relative; /*senza di questo non funziona il left o il right  */
+  left: 50%;
+  min-width: 250px;
+ 
+}
+
+@media (max-width: 608px) {
+  .homepage3 img{
+    display: none;
+    
+  }
+  .parteditesto{
+   width: 100%;
+   
+   text-align: center;
+    
+  }
+}
+
+
+
+
+.button-41 {
+  background-color: initial;
+  background-color: #8E1616;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 44px;
+  padding: 0 20px;
+  text-align: center;
+  width: 50%;
+  border: 0;
+}
+
+.button-41:hover {
+  transform: scale(1.05);
+  background-color: #792533;
+  
+}
+
+.button-41 a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+/* Ultima parte */
+
+/* Stile per la sezione finale */
+.homepage4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #0c0909; /* Sfondo scuro */
+  color: white;
+  padding: 40px;
+  margin-top: 50px;
+}
+
+.homepage4 div {
+  flex: 1;
+  padding: 20px;
+  margin: 0 10px;
+}
+
+.homepage4 h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #D84040;
+  padding-bottom: 5px;
+  color: white;
+}
+
+/* Stile per i link nella terza parte */
+.lastpage {
+  list-style: none;
+  padding: 0;
+}
+
+.lastpage a {
+  display: flex;
+  align-items: center;
+  color: #D84040;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.lastpage a:hover {
+  color: #ffffff;
+}
+
+/* Stile per le icone accanto ai link */
+.lastpage a::before {
+  content: "🔗"; /* Puoi sostituire con un'icona FontAwesome se le usi */
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+.numericell {
+  list-style-type: none; /* Rimuove i pallini dell'elenco */
+  padding: 0;
+  margin: 0;
+}
+
+.numericell li {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-top: 5px;
+}
+@media (max-width: 1258px) {
+  .homepage4 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .parte3 {
+   width: 100%;
+    margin-right: 110px;
+  }
+
+}
+/*PAGINA DOVE SIAMO: CARTINA GEOGRAFICA*/
+.contenitore1 h1, .contenitore1 h2, .contenitore1 p{
+  text-align: center;
+  margin: 30px auto ;
+}
+.contenitore1{
+  margin-top: 200px;
+  margin-bottom: 130px;
+}
+#map{
+  max-width:100%;
+  list-style:none; 
+  transition: none;
+  overflow:hidden;
+  width:500px;
+  height:500px;
+  margin-bottom: 60px;
+}
+#g-mapdisplay{
+  height:100%; 
+  width:100%;
+  max-width:100%
+}
+.homepage4 .parte1 a {
+  display: inline-block; 
+  margin-top: 20px; 
+  text-decoration: none; 
+  font-weight: bold;
+  color: #D84040;
+  transition: all 0.3s ease;
+}
+.parte1 a:hover {
+  color: white;
+  
+}
+/*PAGINA DOVE SIAMO: CONTATTI*/
+
+.contactus {
+  text-align: center;
+  color: black;
+  margin-top: 20px;
+}
+
+.contactus h1 {
+  font-weight: 900;
+  padding: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.contact-container {
+  display: flex;
+  gap: 70px;
+  justify-content: center;
+}
+
+.contact-container h1 {
+  font-size: 18px;
+  color: white;
+}
+
+.flip-card {
+  margin-top: 70px;
+  background-color: transparent;
+  width: 300px; /* Larghezza fissa */
+  height: 450px; /* Altezza fissa */
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.2s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra il contenuto verticalmente */
+  align-items: center; /* Centra il contenuto orizzontalmente */
+  padding: 20px; /* Riduci il padding per evitare overflow */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden; /* Impedisce al contenuto di uscire */
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #181717;
+  color: rgb(255, 255, 255);
+  transform: rotateY(180deg);
+}
+
+.icon {
+  font-size: 50px;
+  margin: 20px 0;
+ color: white; /* Riduci il margine per evitare overflow */
+}
+
+@media (max-width: 1258px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flip-card {
+    width: 90%; /* Larghezza maggiore su schermi piccoli */
+    height: 300px; /* Altezza ridotta su schermi piccoli */
+    margin-bottom: 20px;
+    height: 350px;
+  }
+}
+
+ /*CHI SIAMO /* Imposta l'altezza della pagina principale 
+
+ /* Above image */
+ .homechisiamo {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Imposta l'altezza della sezione */
+}
+
+.imgchisiamo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imgchisiamohome {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assicura che l'immagine copra l'intera area */
+}
+
+.overlay1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay scuro per migliorare la leggibilità del testo */
+}
+
+.title-chisiamo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2; /* Assicura che il testo sia sopra l'overlay */
+}
+
+.citazione {
+  font-size: clamp(20px, 2vw, 60px);
+  font-style: italic;
+  margin-bottom: 30px;
+  margin-top: 50px ;
+ 
+}
+
+.nome {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f8f3f4;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 3; /* Above overlay */
+  width: 90%;
+  max-width: 600px;
+} 
+ .title-chisiamo{
+  display: block;
+  height: 100vh;
+  padding: 20% 0  0 20%;
+  margin-top: 100px ;
+ }
+ .title-chisiamo{
+  display: block;
+  height: 100vh;
+  padding: 10% 10%;
+ }
+ .paragrafro{
+  margin-left: 10vw ;
+  margin-right: 10vw ;
+  display: flex;
+  flex-wrap: wrap; /* Permette di andare a capo quando necessario */
+  justify-content: center;
+  min-width: 0px;
+
+ }
+.PTitle{
+ font-size: 2rem;
+ margin-bottom: 10vh;
+ margin-top: 10vh;
+
+ }
+ .highlight {
+  color: #ad2a0d; /* Colore diverso per la parola "vita" */
+  font-weight: bold; /* Opzionale: rendi la parola in grassetto */
+}
+
+.title-primaparte {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 60%; /* Ridotto per evitare che i div vadano ai margini */
+  margin: 0 auto; /* Per centrare il contenitore */
+  gap: 60px; /* Aggiunto spazio tra gli elementi */
+}
+
+/* Stile di base per i contenitori */
+.primotest, .secondotest {
+  display: inline-block; /* Disposizione affiancata */
+  width: 48%; /* Larghezza ridotta per lasciare spazio */
+  margin: 1%; /* Margine per separare i contenitori */
+  vertical-align: top; /* Allinea i contenuti in alto */
+}
+
+/* Media query per schermi piccoli (ad esempio, meno di 768px) */
+@media (max-width: 768px) {
+  .title-primaparte {
+    flex-direction: column; /* Disposizione verticale dei div */
+    gap: 20px; /* Riduce lo spazio tra i div */
+    width: 100%; /* Larghezza completa per il contenitore */
+  }
+
+  .primotest, .secondotest {
+    display: block; /* Disposizione verticale */
+    width: 100%; /* Larghezza piena */
+    margin: 10px 0; /* Margine verticale per separare i blocchi */
+  }
+
+  /* Se vuoi che i bottoni siano uno sopra l'altro anche in versione mobile */
+  .contenitore-bottoni {
+    display: block; /* Disposizione verticale */
+    width: 100%; /* Larghezza piena */
+  }
+
+  .bottone-comune {
+    width: 100%; /* I bottoni occupano tutta la larghezza */
+    margin-bottom: 10px; /* Spazio tra i bottoni */
+  }
+}
+
+.bottone-comune {
+  background-color: #8E1616;
+}
+
+.bottone-comune a {
+  text-decoration: none;
+  color: white;
+}
+
+.bottone-comune:hover {
+  background-color: #792533;
+}
+
+/* Container donazione */
+
+
+/* Contenitore principale */
+/* Contenitore principale */
+/* Contenitore principale */
+.donation-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 50px auto 150px;
+  overflow: hidden;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: stretch; /* Allinea verticalmente */
+}
+
+/* Sezione sinistra */
+.donation-info {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spazio tra l'immagine e il testo */
+}
+
+.donation-img {
+  width: 100%;
+  max-width: 550px;
+  min-width: 250px;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.donation-text {
+  width: 100%;
+  max-width: 550px;
+  min-width: 250px;
+  flex-grow: 1; /* Adatta l'altezza per essere uniforme */
+  padding: 20px;
+  border-left: 5px solid #c7342f;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-text h1 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #b71c1c;
+  font-weight: bold;
+}
+
+/* Sezione destra */
+.donation-box {
+  flex: 1; /* Stessa proporzione della parte sinistra */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: stretch;
+  max-width: 600px;
+}
+
+.containersecondaparte {
+  flex-grow: 1; /* Adatta l'altezza in base al contenuto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Allinea gli elementi dentro */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.buttnIban, .buttnIPaypal {
+  flex: 1;
+  padding: 12px;
+  background-color: #c7342f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.buttnIban:hover, .buttnIPaypal:hover {
+  opacity: 0.8;
+}
+
+.content1 {
+  display: none;
+  width: 100%;
+  height: 56vh;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#ibanContent {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  
+}
+
+#ibanContent p {
+  font-size: 22px;
+  color: #333;
+  line-height: 1.6;
+}
+#paypalContent{
+  font-size: 20px;
+  padding: ;
+}
+#ibanContent strong {
+  font-size: 18px;
+  color: #0b0c0b;
+  font-weight: bold;
+}
+
+#ibanContent a {
+  color: #111311;
+  text-decoration: none;
+  font-weight: bold;
+  
+}
+
+#ibanContent a:hover {
+  text-decoration: underline;
+}
+
+.listasoldi {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.listasoldi .soldi {
+  margin-bottom: 10px;
+}
+.listasoldi button{
+margin-top: 20px;
+}
+input[type="number"].soldialtro {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+.titledonaionee{
+  text-align: center;
+  margin: 150px auto 0px auto;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  background: linear-gradient(to right, #f50a0a, #2e1717);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+
+@media (max-width: 968px) {
+  .donation-container{
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+    height: vh;
+  }
+  #ibanContent p {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+  #paypalContent{
+    font-size: 20px;
+    padding: ;
+  }
+}
+
+/* cani in rifugio */
+.adopt-intro {
+
+  text-align: center;
+  padding: 40px 20px;
+  color: black;
+  margin: 150px auto 100px auto;
+  max-width: 800px;
+}
+
+.adopt-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.adopt-intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+/* Lista cani */
+.containerlistacani{
+  display: flex;
+  width: 70%;
+  margin-left: auto ;
+  margin-right: auto;
+
+}
+
+.containerlistacani {
+  display: flex;
+  justify-content: center; /* Centra il contenuto orizzontalmente */
+  align-items: center;
+  width: 80%;
+  margin: 0 auto; /* Assicura che il contenitore sia centrato */
+}
+
+.listacani {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Griglia con due colonne */
+  gap: 20px; /* Aggiunge spazio tra gli elementi */
+  max-width: 1000px; /* Limita la larghezza */
+  width: 100%; /* Forza l'elemento a riempire il container */
+  justify-content: center; /* Centra la griglia */
+}
+
+.cane{
+  position: relative;
+  overflow: hidden;
+}
+.cane img {
+  width: 100%; /* Immagine che riempie tutta la larghezza del contenitore */
+  height: 100%; /* Forza l'altezza dell'immagine per coprire il contenitore */
+  object-fit: cover; /* Copre l'intero spazio, potrebbe tagliare l'immagine */
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.cane h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  transition: height 0.7s ease-in-out, opacity 0.9s ease-in-out;
+}
+
+.cane:hover img {
+  opacity: 0.4;
+  transform: translateY(-10px); /* Fa alzare leggermente l'immagine */
+  cursor: pointer;
+}
+
+.cane:hover h3{
+  height: 20%;
+  opacity: 1;
+  transition: 0.7s;
+}
+
+
+/* VOLONTARII*/
+
+
+footer {
+  margin-top: 20px;  /* Se vuoi uno spazio tra il contenuto e il footer */
+}
+
+header {
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+  margin-top: 200px;
+}
+h1 {
+  font-size: 2.5rem;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  color: #2d3e50;
+}
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.email-info {
+  background-color: #e8f4f8;
+  border-left: 5px solid #2d3e50;
+  padding: 15px;
+  margin-top: 20px;
+}
+.contact-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Dettaglii*/
+h1 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.foto-cane {
+  width:50vw;
+  max-width: 550px; 
+  min-width: 400px; /* Immagine più grande */
+  height: auto;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ margin: 50px auto;
+display: flex;
+}
+
+.dettagli {
+  font-size: 20px;
+  color: #444;
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.dettagli p {
+  margin: 10px 15px;
+  line-height: 1.4;
+}
+
+strong {
+  color: #222;
+}
+#nome-cane {
+  margin-top: 140px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase; /* Rende tutto maiuscolo */
+  color: #333; /* Colore del testo */
+  padding: 50px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Effetto ombra */
+}
+
+
